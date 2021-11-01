@@ -8,14 +8,14 @@ WORKDIR /build/
 COPY build.sh VERSION /build/
 RUN bash build.sh
 
-FROM alpine:3.14
+FROM ubuntu:bionic
 
 EXPOSE 25/tcp
 EXPOSE 143/tcp
 
 # Install dependencies and protonmail bridge
-RUN apk update && \
-    apk add --no-cache socat pass libsecret-1-0 ca-certificates && \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends socat pass libsecret-1-0 ca-certificates && \
     echo "**** cleanup ****" && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
