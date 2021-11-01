@@ -1,6 +1,6 @@
 diff --git a/internal/imap/mailbox_messages.go b/internal/imap/mailbox_messages.go
---- internal/imap/mailbox_messages.go
-+++ internal/imap/mailbox_messages.go
+--- a/internal/imap/mailbox_messages.go
++++ b/internal/imap/mailbox_messages.go
 @@ -311,9 +311,13 @@
  func (im *imapMailbox) SearchMessages(isUID bool, criteria *imap.SearchCriteria) (ids []uint32, err error) { //nolint[gocyclo]
  	// Called from go-imap in goroutines - we need to handle panics for each function.
@@ -9,7 +9,7 @@ diff --git a/internal/imap/mailbox_messages.go b/internal/imap/mailbox_messages.
 -	if criteria.Not != nil || criteria.Or != nil {
 +	if criteria.Not != nil{
 +		//ignore for K-9 (Android) support
-+	} 
++	}
 +
 +	if criteria.Or != nil {
  		return nil, errors.New("unsupported search query")
