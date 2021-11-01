@@ -8,7 +8,7 @@ VERSION=`cat VERSION`
 git clone https://github.com/ProtonMail/proton-bridge.git
 cd proton-bridge
 git checkout v$VERSION
-git apply ../patches/*.patch
+#git apply ../patches/*.patch
 
 # Build
 make build-nogui
