@@ -1,6 +1,6 @@
 *
 
-!patches
+!patches/*.patch
 !.dockerignore
 !VERSION
 !entrypoint.sh
