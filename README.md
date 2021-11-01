@@ -1,6 +1,6 @@
 # protonmail-bridge-docker
 
-Based on the repo https://github.com/shenxn/protonmail-bridge-docker
+Based on the repo https://github.com/shenxn/protonmail-bridge-docker with some patches to allow [K-9 Mail](https://github.com/k9mail/k-9) support.
 
 ## Initialization
 
