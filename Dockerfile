@@ -5,8 +5,7 @@ RUN apt-get update && apt-get install -y libsecret-1-dev
 
 # Build
 WORKDIR /build/
-COPY build.sh VERSION /build/
-COPY patches/*.patch /build/patches
+COPY build.sh patches VERSION /build/
 RUN bash build.sh
 
 FROM ubuntu:bionic
