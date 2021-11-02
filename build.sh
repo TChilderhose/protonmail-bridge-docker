@@ -2,13 +2,14 @@
 
 set -ex
 
-VERSION=`cat VERSION`
+VERSION=v1.8.10
 
-# Clone new code
 git clone https://github.com/ProtonMail/proton-bridge.git
+
 cd proton-bridge
-git checkout v$VERSION
-git apply ../*.patch #patches get copied to the root folder from the ./patches folder on build
+git checkout $VERSION
+
+git apply ../patches/*.patch
 
 # Build
 make build-nogui

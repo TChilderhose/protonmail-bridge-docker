@@ -2,8 +2,7 @@
 
 !patches/*.patch
 !.dockerignore
-!VERSION
-!entrypoint.sh
-!gpgparams
-!Dockerfile
 !build.sh
+!entrypoint.sh
+!Dockerfile
+!gpgparams
