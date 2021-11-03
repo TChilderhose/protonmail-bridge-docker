@@ -17,7 +17,7 @@ Wait for the bridge to startup, use `login` command and follow the instructions 
 To run the container, use the following command.
 
 ```
-docker run -d --name=protonmail-bridge -v protonmail:/root -p 1025:25/tcp -p 1143:143/tcp --restart=unless-stopped ghcr.io/tchilderhose/protonmail-bridge-docker
+docker run -d --name=protonmail-bridge -v /path/to/protonmail:/root -p 1025:25/tcp -p 1143:143/tcp --restart=unless-stopped ghcr.io/tchilderhose/protonmail-bridge-docker
 ```
 
 or Docker-compose
