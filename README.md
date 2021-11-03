@@ -7,7 +7,7 @@ This repo is heavily based on the repo https://github.com/shenxn/protonmail-brid
 To initialize and add account to the bridge, run the following command.
 
 ```
-docker run --rm -it -v protonmail:/root ghcr.io/tchilderhose/protonmail-bridge-docker init
+docker run --rm -it -v /path/to/protonmail:/root ghcr.io/tchilderhose/protonmail-bridge-docker init
 ```
 
 Wait for the bridge to startup, use `login` command and follow the instructions to add your account into the bridge. Then use `info` to see the configuration information (username and password). After that, use `exit` to exit the bridge. You may need `CTRL+C` to exit the docker entirely.
@@ -31,5 +31,5 @@ or Docker-compose
       - "1025:25/tcp"
       - "1143:143/tcp"
     volumes:
-      - protonmail:/root
+      - /path/to/protonmail:/root
 ```
