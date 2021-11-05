@@ -7,6 +7,8 @@ RUN apk add --no-cache --upgrade libsecret-dev git
 RUN CGO_ENABLED=0
 COPY patches/ /patches/
 RUN git clone --branch v1.8.10 https://github.com/ProtonMail/proton-bridge.git
+RUN pwd
+RUN ls
 WORKDIR /proton-bridge/
 RUN pwd
 RUN ls
