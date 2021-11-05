@@ -1,7 +1,5 @@
 FROM golang:alpine AS build
 
-ENV VERSION=v1.8.10
-
 # Install dependencies
 RUN apk add --no-cache --upgrade libsecret-dev git
 
@@ -12,7 +10,7 @@ COPY build.sh /build/
 COPY patches/ /build/patches/
 RUN git clone https://github.com/ProtonMail/proton-bridge.git
 RUN cd proton-bridge
-RUN git checkout $VERSION
+RUN git checkout v1.8.10
 RUN git apply ../patches/*.patch
 RUN CGO_ENABLED=1 GOOS=linux make build-nogui
 
