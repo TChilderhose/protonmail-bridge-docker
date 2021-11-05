@@ -1,17 +1,14 @@
-FROM golang:alpine AS build
+FROM golang:1.15 AS build
 
 # Install dependencies
-RUN apk add --no-cache --upgrade libsecret-dev git make
+RUN apt-get update && apt-get install -y libsecret-1-dev
 
 # Build
-RUN CGO_ENABLED=0
-COPY patches/ /patches/
-RUN git clone https://github.com/ProtonMail/proton-bridge.git /proton-bridge
-WORKDIR /proton-bridge/
-RUN git checkout v1.8.10
-RUN git apply /patches/*.patch
-RUN make build-nogui
-
+WORKDIR /build/
+COPY build.sh /build/
+COPY patches/ /build/patches/
+RUN ls /build
+RUN bash build.sh
 
 FROM alpine:3.14
 
@@ -20,7 +17,7 @@ EXPOSE 143/tcp
 
 # Install dependencies and protonmail bridge
 RUN echo "**** install packages ****" && \
-    apk add --no-cache --upgrade socat pass libsecret ca-certificates tzdata && \
+    apk add --no-cache --upgrade socat pass libsecret ca-certificates libc6-compat tzdata && \
     echo "**** cleanup ****" && \
     rm -rf /tmp/*
 
