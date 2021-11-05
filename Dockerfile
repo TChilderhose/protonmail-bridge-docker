@@ -1,7 +1,7 @@
 FROM golang:alpine AS build
 
 # Install dependencies
-RUN apk add --no-cache --upgrade libsecret-dev git
+RUN apk add --no-cache --upgrade libsecret-dev git make
 
 # Build
 RUN CGO_ENABLED=0
