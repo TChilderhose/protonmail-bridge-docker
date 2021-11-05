@@ -1,14 +1,15 @@
 FROM golang:alpine AS build
 
 # Install dependencies
-RUN apk add libsecret-dev
+RUN apk add --no-cache --upgrade libsecret-dev
 
 # Build
+RUN CGO_ENABLED=0
 WORKDIR /build/
 COPY build.sh /build/
 COPY patches/ /build/patches/
 RUN ls /build
-RUN bash build.sh
+RUN build.sh
 
 FROM alpine:3.14
 
