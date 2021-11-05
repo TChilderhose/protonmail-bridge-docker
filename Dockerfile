@@ -5,14 +5,13 @@ RUN apk add --no-cache --upgrade libsecret-dev git
 
 # Build
 RUN CGO_ENABLED=0
-WORKDIR /build/
-COPY build.sh /build/
-COPY patches/ /build/patches/
+COPY patches/ /patches/
 RUN git clone https://github.com/ProtonMail/proton-bridge.git
-RUN cd proton-bridge
+WORKDIR /proton-bridge
 RUN git checkout v1.8.10
-RUN git apply ../patches/*.patch
+RUN git apply /patches/*.patch
 RUN CGO_ENABLED=1 GOOS=linux make build-nogui
+
 
 FROM alpine:3.14
 
