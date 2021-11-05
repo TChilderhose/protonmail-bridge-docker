@@ -10,7 +10,7 @@ RUN git clone https://github.com/ProtonMail/proton-bridge.git /proton-bridge
 WORKDIR /proton-bridge/
 RUN git checkout v1.8.10
 RUN git apply /patches/*.patch
-RUN CGO_ENABLED=1 GOOS=linux make build-nogui
+RUN make build-nogui
 
 
 FROM alpine:3.14
