@@ -4,6 +4,7 @@ FROM golang:1.15 AS build
 RUN apt-get update && apt-get install -y libsecret-1-dev
 
 # Build
+CGO_ENABLED=0 GOOS=linux go build -ldflags "-s" -a -installsuffix cgo .
 WORKDIR /build/
 COPY build.sh /build/
 COPY patches/ /build/patches/
