@@ -6,9 +6,8 @@ RUN apk add --no-cache --upgrade libsecret-dev git
 # Build
 RUN CGO_ENABLED=0
 COPY patches/ /patches/
-RUN git clone https://github.com/ProtonMail/proton-bridge.git
+RUN git clone --branch v1.8.10 https://github.com/ProtonMail/proton-bridge.git
 WORKDIR /proton-bridge/
-RUN git checkout v1.8.10
 RUN git apply /patches/*.patch
 RUN CGO_ENABLED=1 GOOS=linux make build-nogui
 
