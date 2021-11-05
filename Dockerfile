@@ -1,5 +1,7 @@
 FROM golang:alpine AS build
 
+ENV VERSION=v1.8.10
+
 # Install dependencies
 RUN apk add --no-cache --upgrade libsecret-dev git
 
@@ -8,7 +10,6 @@ RUN CGO_ENABLED=0
 WORKDIR /build/
 COPY build.sh /build/
 COPY patches/ /build/patches/
-RUN VERSION=v1.8.10
 RUN git clone https://github.com/ProtonMail/proton-bridge.git
 RUN cd proton-bridge
 RUN git checkout $VERSION
