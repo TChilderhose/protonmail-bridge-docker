@@ -10,16 +10,15 @@ COPY patches/ /build/patches/
 RUN ls /build
 RUN bash build.sh
 
-FROM ubuntu:bionic
+FROM alpine:3.14
 
 EXPOSE 25/tcp
 EXPOSE 143/tcp
 
 # Install dependencies and protonmail bridge
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends socat pass libsecret-1-0 ca-certificates && \
+RUN echo "**** install packages ****" && \
+    apk add --no-cache --upgrade socat pass libsecret ca-certificates tzdata && \
     echo "**** cleanup ****" && \
-    rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
 
 # Copy bash scripts
