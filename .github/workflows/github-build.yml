@@ -22,8 +22,8 @@ jobs:
         with:
           images: ghcr.io/tchilderhose/protonmail-bridge-docker
           tags: |
+            type=ref,event=tag,priority=900
             type=ref,event=branch
-            type=semver,pattern={{version}}
             type=sha,prefix=
 
       - name: Set up QEMU
