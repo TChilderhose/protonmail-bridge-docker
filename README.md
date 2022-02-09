@@ -6,7 +6,7 @@ This repo is heavily based on the repo https://github.com/shenxn/protonmail-brid
 ## Tags
 
 There are two tags worth mentioning.
- - `latest`: Image based on the latest stable release of [proton-bridge](https://github.com/ProtonMail/proton-bridge). Currently `v1.8.12`.
+ - `latest`: Image based on the latest stable release of [proton-bridge](https://github.com/ProtonMail/proton-bridge). Currently `v2.1.0`.
  - `beta`: Image based on the latest pre-release of [proton-bridge](https://github.com/ProtonMail/proton-bridge). Currently `v2.1.0`.
 
 ## Initialization
