@@ -2,7 +2,7 @@
 
 set -ex
 
-VERSION=v2.1.0
+VERSION=v2.1.1
 
 git clone https://github.com/ProtonMail/proton-bridge.git
 
