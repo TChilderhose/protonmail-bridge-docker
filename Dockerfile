@@ -10,14 +10,14 @@ COPY patches/ /build/patches/
 RUN ls /build
 RUN bash build.sh
 
-FROM alpine:3.15
+FROM alpine:3.16
 
 EXPOSE 25/tcp
 EXPOSE 143/tcp
 
 # Install dependencies and protonmail bridge
 RUN echo "**** install packages ****" && \
-    apk add --no-cache --upgrade socat pass libsecret ca-certificates libc6-compat tzdata && \
+    apk add --no-cache --upgrade gpg-agent socat pass libsecret ca-certificates libc6-compat tzdata && \
     echo "**** cleanup ****" && \
     rm -rf /tmp/*
 
