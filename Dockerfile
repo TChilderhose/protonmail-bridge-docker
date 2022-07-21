@@ -1,4 +1,4 @@
-FROM golang:1.15 AS build
+FROM golang:1.18 AS build
 
 # Install dependencies
 RUN apt-get update && apt-get install -y libsecret-1-dev
@@ -10,7 +10,7 @@ COPY patches/ /build/patches/
 RUN ls /build
 RUN bash build.sh
 
-FROM alpine:3.14
+FROM alpine:3.16
 
 EXPOSE 25/tcp
 EXPOSE 143/tcp
