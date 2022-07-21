@@ -10,7 +10,7 @@ COPY patches/ /build/patches/
 RUN ls /build
 RUN bash build.sh
 
-FROM alpine:3.16
+FROM alpine:3.15
 
 EXPOSE 25/tcp
 EXPOSE 143/tcp
