@@ -9,6 +9,9 @@ if [[ $1 == init ]]; then
     gpg --generate-key --batch /protonmail/gpgparams
     pass init pass-key
 
+    # Kill the other instance as only one can be running at a time
+    pkill protonmail-bridge
+
     # Login
     /protonmail/proton-bridge --cli $@
 
