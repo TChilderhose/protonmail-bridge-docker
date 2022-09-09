@@ -1,7 +1,7 @@
 diff --git a/internal/imap/mailbox_messages.go b/internal/imap/mailbox_messages.go
 --- a/internal/imap/mailbox_messages.go
 +++ b/internal/imap/mailbox_messages.go
-@@ -336,7 +336,11 @@ func (im *imapMailbox) SearchMessages(isUID bool, criteria *imap.SearchCriteria)
+@@ -345,7 +345,11 @@ func (im *imapMailbox) searchMessages(isUID bool, criteria *imap.SearchCriteria)
  	// Called from go-imap in goroutines - we need to handle panics for each function.
  	defer im.panicHandler.HandlePanic()
  
