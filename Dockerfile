@@ -1,7 +1,8 @@
-FROM golang:1.18 AS build
+#Build
+FROM golang:1.19 AS build
 
 # Install dependencies
-RUN apt-get update && apt-get install -y libsecret-1-dev
+RUN apt-get update -y && apt-get install -y libsecret-1-dev
 
 # Build
 WORKDIR /build/
@@ -11,15 +12,17 @@ RUN ls /build
 RUN bash build.sh
 
 
+#Release
 FROM ubuntu:jammy
 
 EXPOSE 25/tcp
 EXPOSE 143/tcp
 
 # Install dependencies and protonmail bridge
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends socat pass libsecret-1-0 ca-certificates netcat iputils-ping \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends socat pass libsecret-1-0 ca-certificates netcat iputils-ping && \
+    rm -rf /var/lib/apt/lists/*
 
 # Copy bash scripts
 COPY gpgparams entrypoint.sh /protonmail/
