@@ -11,14 +11,14 @@ RUN ls /build
 RUN bash build.sh
 
 
-FROM ubuntu:focal
+FROM ubuntu:jammy
 
 EXPOSE 25/tcp
 EXPOSE 143/tcp
 
 # Install dependencies and protonmail bridge
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends socat pass libsecret-1-0 ca-certificates \
+    && apt-get install -y --no-install-recommends socat pass libsecret-1-0 ca-certificates iputils-ping \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy bash scripts
