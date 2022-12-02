@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y libsecret-1-dev
 # Build
 WORKDIR /build/
 COPY build.sh /build/
-COPY patches/ /build/patches/
+#COPY patches/ /build/patches/
 RUN ls /build
 RUN bash build.sh
 
