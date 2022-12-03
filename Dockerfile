@@ -13,7 +13,7 @@ RUN bash build.sh
 
 
 #Release
-FROM ubuntu:jammy
+FROM ubuntu:20.04
 
 EXPOSE 25/tcp
 EXPOSE 143/tcp
