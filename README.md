@@ -9,7 +9,7 @@ Currently no patches are needed for K-9 with `v3.0.x` which implments proton's o
 
 There are two tags worth mentioning.
  - `latest`: Image based on the latest stable release of [proton-bridge](https://github.com/ProtonMail/proton-bridge). Currently `v3.0.21`.
- - `beta`: Image based on the latest beta pre-release of [proton-bridge](https://github.com/ProtonMail/proton-bridge). Currently `v3.1.0`.
+ - `beta`: Image based on the latest beta pre-release of [proton-bridge](https://github.com/ProtonMail/proton-bridge). Currently `v3.1.1`.
  
 ## Initialization
 
