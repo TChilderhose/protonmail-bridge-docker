@@ -1,3 +1,6 @@
+# Going to stop updating this repo. Please check out [shenxn/protonmail-bridge-docker](https://github.com/shenxn/protonmail-bridge-docker)
+
+
 # protonmail-bridge-docker
 
 This repo is heavily based on the [shenxn/protonmail-bridge-docker](https://github.com/shenxn/protonmail-bridge-docker) repo with some patches to allow [K-9 Mail](https://github.com/k9mail/k-9) support. For now it only supports the `amd64` architecture. 
